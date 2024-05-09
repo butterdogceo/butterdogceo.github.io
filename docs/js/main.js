@@ -1,3 +1,8 @@
+// jQuery
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.3.min.js';
+document.getElementsByTagName('head')[0].appendChild(script);
+
 // Menu Functions
 function openMenu() {
     document.getElementById('nav').style.width = "98.5%";
@@ -17,8 +22,8 @@ function openMenu() {
     const array = [...items];
     array.forEach(item => {
         if (item.classList.contains("secret")) {
-            item.style.display = "block";
-            item.style.opacity = 1;
+            $('.secret').css('display', 'block');
+            $('.secret').css('opacity', '1');
         }
     });
   }
