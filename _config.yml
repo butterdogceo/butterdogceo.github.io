@@ -1,0 +1,6 @@
+title: Hub - ButterDogCo
+description: te oficial hub for other buterdogco website and stuff
+show_downloads: false
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+- jekyll-remote-theme
