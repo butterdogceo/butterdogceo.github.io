@@ -8,22 +8,16 @@ function openMenu() {
     document.getElementById('nav').style.width = "98.5%";
     document.getElementById('closeMenuIcon').style.display = "block";
     document.getElementById('menuIcon').style.display = "none";
-  }
-  
-  function closeMenu() {
+}
+
+function closeMenu() {
     document.getElementById('nav').style.width = "225px";
     document.getElementById('menuIcon').style.display = "block";
     document.getElementById('closeMenuIcon').style.display = "none";
-  }
-  
-  function iconClick() {
+}
+
+function iconClick() {
     document.getElementById('icon').style.rotate = "180deg";
-    const items = document.querySelectorAll('div');
-    const array = [...items];
-    array.forEach(item => {
-        if (item.classList.contains("secret")) {
-            $('.secret').css('display', 'block');
-            $('.secret').css('opacity', '1');
-        }
-    });
-  }
+    $('.secret').css('display', 'block');
+    $('.secret').css('opacity', '1');
+}
