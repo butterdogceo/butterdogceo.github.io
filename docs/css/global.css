@@ -70,3 +70,7 @@
     transition-property: opacity;
     transition-timing-function: ease;
   }
+
+  #pageID {
+    display: none;
+  }
