@@ -112,6 +112,7 @@ function iconClick() {
   }
   rotateNum = rotateNum + 180;
   document.getElementById('icon').style.rotate = `${rotateNum}deg`;
+  document.querySelector(".backgroundImage").classList.add("woah");
 
   _notSoSecretApps.forEach(function(app) {
     document.getElementById("cards").appendChild(app);
