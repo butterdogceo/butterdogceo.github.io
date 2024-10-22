@@ -12,6 +12,7 @@ div.backgroundImage {
   top: 0;
   left: 0;
   width: 100vw;
+  height: 100%;
   background-image: url("https://github.com/butterdogco/butterdogco.github.io/blob/main/docs/img/backgrounds/DarkBG.png?raw=true");
   background-repeat: no-repeat;
   background-position: center;
