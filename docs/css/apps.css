@@ -23,7 +23,11 @@ div.backgroundImage {
 }
 
 div.backgroundImage.woah {
-  filter: brightness(70%) contrast(120%);
+  filter: brightness(60%) sepia(60%);
+}
+
+* {
+  z-index: 2;
 }
 
 .news {

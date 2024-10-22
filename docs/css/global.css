@@ -23,6 +23,7 @@ body {
   min-height: 100vh;
   margin: 90;
   height: 120%;
+  overflow-x: hidden;
   overflow: overlay;
 }
 
