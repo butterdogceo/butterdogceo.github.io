@@ -1,4 +1,4 @@
-let _notSoSecretApps = {};
+let _notSoSecretApps = [];
 
 // Card Creation
 function addCard(cardInfo) {
