@@ -1,3 +1,5 @@
+let _notSoSecretApps = {};
+
 // Card Creation
 function addCard(cardInfo) {
   var name = cardInfo.Name || "";
@@ -12,9 +14,6 @@ function addCard(cardInfo) {
 
   const div = document.createElement("div");
   div.className = "card";
-  if (cardInfo.Secret && cardInfo.Secret === true) {
-    div.classList.add("secret");
-  }
   const a = document.createElement("a");
   a.href = link;
   const img = document.createElement("img");
@@ -28,6 +27,11 @@ function addCard(cardInfo) {
   a.appendChild(img);
   a.appendChild(heading);
   a.appendChild(p);
+  if (cardInfo.Secret && cardInfo.Secret === true) {
+    // div.classList.add("secret");
+    _notSoSecretApps.push(div);
+    return;
+  }
   document.getElementById("cards").appendChild(div);
 }
 
@@ -109,7 +113,12 @@ function iconClick() {
   rotateNum = rotateNum + 180;
   document.getElementById('icon').style.rotate = `${rotateNum}deg`;
 
+  _notSoSecretApps.forEach(function(app) {
+    document.getElementById("cards").appendChild(app);
+  });
+  /*
   document.querySelectorAll(".secret").forEach(function (obj) {
     obj.classList.remove("secret");
-  });
+  }); 
+  */
 }
