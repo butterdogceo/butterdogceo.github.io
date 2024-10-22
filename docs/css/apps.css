@@ -2,9 +2,16 @@ main {
   justify-content: center;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 body {
   background-image: none !important;
   background: black;
+  height: 100%;
+  min-height: 100vh;
 }
 
 div.backgroundImage {
@@ -18,16 +25,12 @@ div.backgroundImage {
   background-position: center;
   background-size: cover;
   transition: 1s ease;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
 }
 
 div.backgroundImage.woah {
   filter: brightness(60%) sepia(60%);
-}
-
-* {
-  z-index: 2;
 }
 
 .news {
