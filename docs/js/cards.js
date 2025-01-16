@@ -35,18 +35,17 @@ const cards = {
     },
     {
       Name:"youtube kids",
-      Desc:"VERY EARLY TESTING!!!",
+      Desc:"da BEST video platform!!",
       Icon:"https://github.com/butterdogceo/youtube-kids/blob/main/docs/img/youtube%20kids%20square.png?raw=true",
       Link:"https://butterdogceo.github.io/youtube-kids/",
       Secret:true
     },
     {
       Name:"butterdog chat",
-      Desc:"yap yap",
+      Desc:"yap yap (PUBLIC TESTING)",
       Icon:"https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/main/docs/img/butterdog%20chat.png",
-      Link:"https://bdogco.natbees.cl",
+      Link:"https://butterdogceo.github.io/about.html",
       Secret:true,
-      Disabled:true
     }
   ],
 };
