@@ -46,6 +46,13 @@ const cards = {
       Icon:"https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/main/docs/img/butterdog%20chat.png",
       Link:"https://butterdogceo.github.io/about.html",
       Secret:true,
+    },
+    {
+      Name:"butterOS",
+      Desc:"da latest and greatest ting for ur computer, with da hub integration (testing)",
+      Icon:"https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/main/docs/img/icons/ButterOS.png",
+      Link:"https://butterdogceo.github.io/ButterOS/",
+      Secret:true
     }
   ],
 };
