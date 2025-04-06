@@ -22,7 +22,7 @@ const cards = {
     {
       Name:"da hub",
       Desc:"mom can i play",
-      Icon:"https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/main/docs/img/icons/da%20hub.png",
+      Icon:"https://raw.githubusercontent.com/joebidenrealomg/da-hub/main/img/Logo%20Transparent.png?raw=true",
       Link:"https://joebidenrealomg.github.io/da-hub/",
       Secret:true
     },
