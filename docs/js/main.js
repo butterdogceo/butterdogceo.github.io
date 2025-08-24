@@ -142,6 +142,7 @@ function iconClick() {
   }
   rotateNum = rotateNum + 180;
   document.getElementById('icon').style.rotate = `${rotateNum}deg`;
+  document.body.classList.add("secret");
 }
 
 // Alternate Site Detection
