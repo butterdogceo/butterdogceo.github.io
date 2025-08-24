@@ -1,0 +1,125 @@
+@import url('./global.css');
+
+main {
+  display: flex;
+  flex-flow: column;
+  gap: var(--cardGap);
+  justify-content: center;
+}
+
+.news {
+  width: calc(100% - (var(--object-padding) * 2));
+  background-color: rgba(230, 230, 240, 0.1);
+  padding: var(--object-padding);
+  border-radius: var(--cardCornerRadius);
+  text-align: center;
+  cursor: default;
+  transition: 0.15s Ease-in-out;
+  animation: slideInFromTop 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  img {
+    height: 150px;
+    object-fit: contain;
+  }
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 44vh;
+  justify-content: center;
+}
+
+/* In the future this should be imported from the card.css file, but for simplicity right now we'll recreate it, since it has custom behavior */
+.card {
+  display: flex;
+  background-color: rgba(230, 230, 240, 0.1);
+  border-radius: var(--cardCornerRadius);
+  height: 100%;
+  padding: 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-flow: column;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: slideInFromTop 0.3s ease;
+  transition: 0.15s ease background-color;
+
+  .open-icon {
+    position: absolute;
+    top: var(--object-padding);
+    right: var(--object-padding);
+    font-size: 40px;
+    opacity: .5;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  img {
+    width: 70%;
+    height: 70%;
+    margin: 10px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  h2 {
+    cursor: pointer;
+    font-size: 28px;
+  }
+
+  p {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+}
+
+/* Make the first one not have a top or bottom right curved corner */
+.card:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Make the middle one not have any curved corners */
+.card:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+/* Make the last one not have a top or bottom left curved corner */
+.card:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.card:hover {
+  background-color: rgba(250, 250, 255, 0.2);
+}
+
+@media (max-width: 1421px) {
+  .cards {
+    width: 100%;
+    gap: 15px;
+    height: auto;
+  }
+
+  /* Increase card height and set default corners for mobile */
+  .card {
+    height: 410px;
+    border-radius: var(--cardCornerRadius) !important;
+  }
+}
