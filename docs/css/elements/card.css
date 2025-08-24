@@ -1,3 +1,7 @@
+body.secret .card.hidden {
+  display: block;
+}
+
 .card {
   display: flex;
   flex-flow: column;
@@ -17,6 +21,10 @@
 
   &:hover {
     background-color: rgba(250, 250, 255, 0.2);
+  }
+  
+  &.hidden {
+    display: none;
   }
 
   .open-icon {
