@@ -157,7 +157,8 @@ a.hyperlink {
   }
 
   #icon {
-    transition: 0.15s ease;
+    border-radius: 50%;
+    transition: 0.15s ease rotate;
   }
 
   .menu-button {
