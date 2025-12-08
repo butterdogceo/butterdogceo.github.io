@@ -99,7 +99,7 @@ function iconClick() {
   playFunnySound();
   if (musicStarted === false) {
     musicStarted = true;
-    const audio = new Audio("audio/dubstep.wav");
+    const audio = new Audio("https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/refs/heads/main/docs/audio/dubstep.wav");
     document.head.appendChild(audio);
     audio.play();
   }
