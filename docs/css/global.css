@@ -139,14 +139,16 @@ a.hyperlink {
     /* Screen-width calculation, used as max-width here to prevent overflow on smaller screens */
     max-width: calc(100vw - (var(--page-side-padding) * 2) - (var(--object-padding) * 2) - var(--nav-outline-thickness));
 
-    #menuIcon {
-      opacity: 0;
-      pointer-events: none;
-    }
+    .menu-button {
+      &.open {
+        opacity: 0;
+        pointer-events: none;
+      }
 
-    #closeMenuIcon {
-      opacity: 1;
-      pointer-events: all;
+      &.close {
+        opacity: 1;
+        pointer-events: all;
+      }
     }
   }
 
@@ -155,27 +157,25 @@ a.hyperlink {
   }
 
   #icon {
-    transition: 0.2s ease;
+    transition: 0.15s ease;
   }
 
-  #menuIcon {
-    opacity: 1;
-    pointer-events: all;
+  .menu-button {
     transition: 0.15s ease;
 
     &:hover {
       filter: brightness(60%);
     }
-  }
 
-  #closeMenuIcon {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.15s ease;
+    &.open {
+      opacity: 1;
+      pointer-events: all;
+    }
 
-    &:hover {
-      filter: brightness(60%);
+    &.close {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
     }
   }
 
@@ -250,7 +250,7 @@ pre {
   border-radius: 50% !important;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 730px) {
   .top-nav.active {
     width: var(--nav-default-width);
     height: auto;

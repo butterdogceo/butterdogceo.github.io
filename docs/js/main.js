@@ -1,5 +1,6 @@
 const cardsContainer = document.getElementById("cards");
 const nav = document.getElementById("nav");
+const menuButtons = document.getElementsByClassName("menu-button");
 const icon = document.getElementById("icon");
 
 // Card creation function
@@ -57,6 +58,7 @@ function createCard(cardInfo) {
   cardsContainer.appendChild(a);
 }
 
+// Get the page ID from the meta tag and create cards accordingly
 try {
   const pageIdElement = document.querySelector('meta[name="page-id"]');
   if (!pageIdElement) {
@@ -74,7 +76,7 @@ try {
   console.error(err);
 }
 
-// Take a guess as to what this does
+// Toggles the navigation menu
 function toggleMenu() {
   if (nav) {
     nav.classList.toggle("active");
@@ -92,6 +94,7 @@ function playFunnySound() {
 let iconRotation = 0;
 let musicStarted = false;
 
+// Handles the icon click event
 function iconClick() {
   playFunnySound();
   if (musicStarted === false) {
@@ -100,7 +103,16 @@ function iconClick() {
     document.head.appendChild(audio);
     audio.play();
   }
-  iconRotation += 180;
-  icon.style.rotate = `${rotateNum}deg`;
+  if (icon) {
+    iconRotation += 180;
+    icon.style.rotate = `${iconRotation}deg`;
+  }
   document.body.classList.add("secret");
 }
+
+// Attach toggleMenu to all menu buttons
+Array.from(menuButtons).forEach((button) => {
+  button.addEventListener("click", toggleMenu);
+});
+
+icon.addEventListener("click", iconClick);
