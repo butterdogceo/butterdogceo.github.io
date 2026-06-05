@@ -6,7 +6,6 @@ body.secret .card.hidden {
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 410px;
   padding: 24px;
   flex-grow: 1;
   background-color: rgba(230, 230, 240, 0.1);
@@ -36,9 +35,8 @@ body.secret .card.hidden {
   }
 
   img {
-    width: 250px;
+    /* width: 250px; */
     height: 250px;
-    max-width: 93vw;
     margin: 10px;
     object-fit: contain;
     border-radius: 10px;

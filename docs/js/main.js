@@ -1,7 +1,11 @@
-const cardsContainer = document.getElementById("cards");
-const nav = document.getElementById("nav");
-const menuButtons = document.getElementsByClassName("menu-button");
-const icon = document.getElementById("icon");
+const CARDS_CONTAINER = document.getElementById("cards");
+const NAV = document.getElementById("nav");
+const NAV_MOBILE_MENU_ICONS = document.querySelectorAll(".mobile-menu-icon");
+const NAV_LOGO = document.getElementById("nav-logo");
+
+let rotateNum = 0;
+let musicStarted = false;
+let footerLogoClicks = 0;
 
 // Card creation function
 // cardInfo attributes: Name, Desc?, Icon, Link, AltLink?, Secret?, Disabled?
@@ -9,110 +13,176 @@ function createCard(cardInfo) {
   const cardName = cardInfo.Name;
   const cardDesc = cardInfo.Desc;
   const cardIcon = cardInfo.Icon;
-  const cardLink = cardInfo.Link || "#";
+  const cardLink = cardInfo.Link;
   const cardAltLink = cardInfo.AltLink;
   const cardIsSecret = cardInfo.Secret || false;
   const cardIsDisabled = cardInfo.Disabled || false;
+  const cardRemovingDate = cardInfo.Removing ? new Date(cardInfo.Removing) : null;
+  const cardRemoveReason = cardInfo.RemoveReason || "No reason provided";
+  const now = new Date();
 
-  if (cardIsDisabled || !cardsContainer) {
+  if (cardIsDisabled || !CARDS_CONTAINER || (cardRemovingDate && now > cardRemovingDate)) {
     return;
   }
 
-  const a = document.createElement("a");
-  a.classList.add("card");
-  a.classList.toggle("hidden", cardIsSecret);
-  a.href = cardAltLink || cardLink || "#";
-  if (a.href != "#") {
-    a.title = "Click to open " + cardName;
+  const card = document.createElement("a");
+  card.classList.add("card");
+  card.classList.toggle("hidden", cardIsSecret);
+  card.href = cardAltLink || cardLink || "#";
+  if (card.href != "#") {
+    card.title = "Click to go to " + (cardLink || cardName);
 
     // We don't want to apply this if a link is a page of this repo
     // But we should still allow links that include butterdogco.com
-    if (!(a.href.includes("://butterdogceo.github.io") && a.href.split("/").length <= 4)) {
-      // Open in a new tab
-      a.target = "_blank";
-      a.title += " in a new tab";
+    if (!(card.href.includes("://butterdogco.com") && card.href.split("/").length <= 4)) {
       // Create the "external link" icon
       const span = document.createElement("span");
       span.classList.add("material-symbols-rounded", "open-icon");
       span.innerHTML = "open_in_new";
-      a.appendChild(span);
+      card.appendChild(span);
     }
   }
   if (cardIcon) {
     const img = document.createElement("img");
     img.src = cardIcon;
     img.setAttribute("loading", "lazy");
-    a.appendChild(img);
+    img.setAttribute("alt", cardName + " icon");
+    img.addEventListener("error", function() {
+      this.src = "./img/icons/backup.jpg";
+    }, { once: true });
+    card.appendChild(img);
   }
   if (cardName) {
     const heading = document.createElement("h2");
     heading.innerText = cardName;
-    a.appendChild(heading);
+    card.appendChild(heading);
   }
   if (cardDesc) {
     const p = document.createElement("p");
     p.innerText = cardDesc;
-    a.appendChild(p);
+    card.appendChild(p);
+  }
+  if (cardRemovingDate) { // No need to double check date as we already check at the start
+    const span = document.createElement("span");
+    span.classList.add("material-symbols-rounded", "removing-soon-icon");
+    span.innerHTML = "schedule";
+    span.title = `${cardName} is being removed on ${cardRemovingDate.toLocaleDateString()}${cardRemoveReason ? ' - ' + cardRemoveReason : ''}`;
+    card.appendChild(span);
   }
 
-  cardsContainer.appendChild(a);
+  CARDS_CONTAINER.appendChild(card);
 }
 
-// Get the page ID from the meta tag and create cards accordingly
-try {
+function initCards() {
   const pageIdElement = document.querySelector('meta[name="page-id"]');
   if (!pageIdElement) {
-    throw new Error("Page ID element not found");
+    return; // No page ID means no cards, so just return early
   }
 
   const pageId = pageIdElement.getAttribute("content");
   if (!pageId) {
-    throw new Error("Page ID element is missing content")
+    console.warn("Page ID meta tag is empty, cannot initialize cards.");
+    return;
   }
+  
   cards[pageId].forEach(function (cardInfo) {
     createCard(cardInfo);
   });
-} catch (err) {
-  console.error(err);
 }
 
-// Toggles the navigation menu
-function toggleMenu() {
-  if (nav) {
-    nav.classList.toggle("active");
+// Utility function that gets a random number between the 2 ranges (no way really)
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+}
+
+// Take a guess as to what this does
+function toggleNav() {
+  if (!NAV) {
+    return;
   }
+
+  NAV.classList.toggle("active");
 }
 
 // Plays the funny sound
-function playFunnySound() {
-  const audio = new Audio("https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/refs/heads/main/docs/audio/this%20look%20like%20gaming%20area.mp3");
+function playFunnySound(src) {
+  const audio = new Audio(src ? src : "https://butterdogco.com/audio/this%20look%20like%20gaming%20area.mp3");
   audio.controls = true;
   document.head.appendChild(audio);
   audio.play();
 }
 
-let iconRotation = 0;
-let musicStarted = false;
-
-// Handles the icon click event
-function iconClick() {
+// I wonder when this runs
+function navIconClick() {
   playFunnySound();
+
   if (musicStarted === false) {
     musicStarted = true;
-    const audio = new Audio("https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/refs/heads/main/docs/audio/dubstep.wav");
+    const audio = new Audio("https://butterdogco.com/audio/dubstep.wav");
     document.head.appendChild(audio);
     audio.play();
   }
-  if (icon) {
-    iconRotation += 180;
-    icon.style.rotate = `${iconRotation}deg`;
-  }
-  document.body.classList.add("secret");
+
+  document.body.classList.toggle("secret");
+  rotateNum = rotateNum + 180;
+  NAV_LOGO.style.rotate = `${rotateNum}deg`;
 }
 
-// Attach toggleMenu to all menu buttons
-Array.from(menuButtons).forEach((button) => {
-  button.addEventListener("click", toggleMenu);
-});
+function setupNav() {
+  if (!NAV || !NAV_MOBILE_MENU_ICONS || !NAV_LOGO) {
+    return;
+  }
 
-icon.addEventListener("click", iconClick);
+  NAV_MOBILE_MENU_ICONS.forEach(icon => {
+    icon.addEventListener("click", toggleNav);
+  });
+
+  NAV_LOGO.addEventListener("click", navIconClick);
+}
+
+function footerLogoClick() {
+  footerLogoClicks += 1;
+
+  if (footerLogoClicks >= 5) {
+    playFunnySound("https://butterdogco.com/audio/louie's pizza vocals.mp3");
+    footerLogoClicks = 0;
+  }
+}
+
+function createFooter() {
+  const footer = document.createElement("footer");
+  footer.innerHTML = `
+    <section class="logo">
+      <img src="./img/general/ButterDogCo%20Wide%20Logo.png" alt="ButterDogCo Logo (Wide)" class="logo" loading="lazy">
+    </section>
+    <section class="links">
+      <ul>
+        <li><a href="https://butterdogco.com/">Home</a></li>
+        <li><a href="https://butterdogco.com/applications">Apps</a></li>
+        <li><a href="https://butterdogco.com/news">News</a></li>
+        <li><a href="https://butterdogco.com/about">About</a></li>
+      </ul>
+      <img src="./img/general/ButterDogCo%20Wide%20Logo.png" alt="ButterDogCo Logo (Wide)" class="logo" loading="lazy" tabindex="0" role="button" aria-label="Funny secret">
+      <ul>
+        <li><a href="https://butterdogco.com/pp">Privacy Policy</a></li>
+        <li><a href="https://butterdogco.com/tos">Terms of Use</a></li>
+      </ul>
+    </section>
+  `;
+  const footerImage = footer.querySelectorAll('img.logo');
+  footerImage.forEach(img => {
+    img.addEventListener('click', footerLogoClick);
+    img.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        footerLogoClick();
+      }
+    });
+  });
+  document.body.appendChild(footer);
+}
+
+initCards();
+createFooter();
+setupNav();

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MRKNHWYBXN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-MRKNHWYBXN');
-  </script>
-
+  <meta charset="UTF-8">
   <title>what</title>
-  <link rel="shortcut icon" href="https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/main/docs/img/favicon.ico">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://butterdogco.com/favicon.ico">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="te buterdogco alt website hub">
+  <meta content="Page Not Found - ButterDogCo" property="og:title">
+  <meta content="hey that page doesn't exist" property="og:description">
+  <meta content="https://butterdogceo.github.io/404" property="og:url">
+  <meta content="https://butterdogco.com/img/posters/Default.png" property="og:image">
+  <meta content="#19120d" data-react-helmet="true" name="theme-color">
+  <script src="https://cdn.jsdelivr.net/npm/ios-pwa-splash@1.0.0/cdn.min.js"></script>
+  <script>iosPWASplash('https://butterdogco.com/img/butterdog.png', '#19120d');</script>
   <style>
     * {
       cursor: default;
@@ -29,24 +30,48 @@
 
     body {
       font-family: 'Roboto', sans-serif;
-      background-image: url('https://raw.githubusercontent.com/butterdogco/butterdogco.github.io/main/docs/img/backgrounds/DarkBG.png');
-      color: white;
+      background-image: url('/img/backgrounds/VerticalBackgroundTest3.png');
       background-repeat: no-repeat;
       background-size: cover;
+      color: white;
+      text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
     }
 
-    a {
-      color: rgb(230, 230, 255);
+    ul {
+      padding: 0;
+      list-style-type: disc;
+      list-style-position: outside;
+
+      li {
+        margin: 10px 0;
+
+        a {
+          font-size: 18px;
+          cursor: pointer;
+          color: rgb(185, 185, 252);
+          border-radius: 4px;
+          outline-color: transparent;
+          outline-style: solid;
+          outline-offset: 6px;
+          transition: 0.1s ease outline-color;
+
+          &:hover,
+          &:focus,
+          &:active {
+            outline-color: rgba(185, 185, 252, 0.75);
+          }
+        }
+      }
     }
 
-    div.center {
+    main.center {
       transform: translate(-50%, -50%);
       position: fixed;
       top: 50%;
       left: 50%;
     }
 
-    div.center .home {
+    main.center .home {
       background-color: rgba(230, 230, 255, 0.3);
       padding: 30px;
       text-align: center;
@@ -63,11 +88,16 @@
 </head>
 
 <body>
-  <div class="center">
+  <main class="center">
     <h1 style="font-size: 120px;text-align: center;margin-top: -80px;">dang</h1>
-    <h1 style="text-align: center;margin-top: -80px;margin-bottom: 80px">we can't find that page</h1>
-    <h1>womp womp</h1>
-    <h3>idk if you made a typo or not but double check that, otherwise <a href="https://discord.gg/KZzVM4rfg6">report an issue in the Discord.</a></h3>
-  </div>
+    <h1 style="text-align: center;margin-top: -80px;margin-bottom: 80px">we can't find that page 😭</h1>
+    <h3>If you typed the link manually, check if you made a typo.<br>Otherwise, you have a few options:</h3>
+    <ul>
+      <li><a href="./">Go to the home page</a></li>
+      <li><a href="https://github.com/butterdogceo/butterdogceo.github.io/issues/new">Report an issue on GitHub</a></li>
+      <li><a href="https://discord.gg/KZzVM4rfg6">Report an issue on Discord</a></li>
+    </ul>
+  </main>
 </body>
+
 </html>
