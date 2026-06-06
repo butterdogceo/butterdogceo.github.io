@@ -4,7 +4,12 @@
   overflow-x: hidden;
   width: 100%;
   height: 100%;
-  flex-wrap: wrap;
   justify-content: center;
   gap: var(--cardGap, 15px);
+}
+
+@media (max-width: 450px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
