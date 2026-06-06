@@ -7,7 +7,6 @@ body.secret .card.hidden {
   flex-flow: column;
   align-items: center;
   padding: 24px;
-  flex-grow: 1;
   background-color: rgba(230, 230, 240, 0.1);
   text-shadow: var(--shadow-light);
   border-radius: 30px;
@@ -35,11 +34,11 @@ body.secret .card.hidden {
   }
 
   img {
-    /* width: 250px; */
     height: 250px;
-    margin: 10px;
+    margin: 0 0 10px 0;
     object-fit: contain;
     border-radius: 10px;
+    aspect-ratio: 1/1;
 
     &.shadow {
       box-shadow: var(--shadow-light);
@@ -53,8 +52,14 @@ body.secret .card.hidden {
   }
 
   p {
-    margin: 4px 0;
+    margin: 0;
     font-size: 20px;
+  }
+}
 
+@media (max-width: 450px) {
+  .card img {
+    width: 100%;
+    aspect-ratio: auto;
   }
 }
