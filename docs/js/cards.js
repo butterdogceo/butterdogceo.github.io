@@ -26,10 +26,10 @@ const cards = {
       Secret: true
     },
     {
-      Name: "youtube kids",
+      Name: "buttertube",
       Desc: "da BEST video platform!!",
-      Icon: "https://butterdogceo.github.io/youtube-kids/img/youtube%20kids%20square.png",
-      Link: "https://butterdogceo.github.io/youtube-kids/",
+      Icon: "https://butterdogco.com/ButterTube/img/buttertube-icon.png",
+      Link: "https:///butterdogco.com/ButterTube/",
       Secret: true
     },
     {
