@@ -5,98 +5,27 @@
   <meta charset="UTF-8">
   <title>what</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="https://butterdogco.com/favicon.ico">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="description" content="te buterdogco alt website hub">
-  <meta content="Page Not Found - ButterDogCo" property="og:title">
+  <link rel="icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="/css/404.css">
+  <meta content="Page Not Found" property="og:title">
   <meta content="hey that page doesn't exist" property="og:description">
-  <meta content="https://butterdogceo.github.io/404" property="og:url">
-  <meta content="https://butterdogco.com/img/posters/Default.png" property="og:image">
-  <meta content="#19120d" data-react-helmet="true" name="theme-color">
-  <script src="https://cdn.jsdelivr.net/npm/ios-pwa-splash@1.0.0/cdn.min.js"></script>
-  <script>iosPWASplash('https://butterdogco.com/img/butterdog.png', '#19120d');</script>
-  <style>
-    * {
-      cursor: default;
-    }
-
-    a {
-      cursor: pointer;
-    }
-
-    ::selection {
-      background: none;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-image: url('/img/backgrounds/VerticalBackgroundTest3.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-      text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
-    }
-
-    ul {
-      padding: 0;
-      list-style-type: disc;
-      list-style-position: outside;
-
-      li {
-        margin: 10px 0;
-
-        a {
-          font-size: 18px;
-          cursor: pointer;
-          color: rgb(185, 185, 252);
-          border-radius: 4px;
-          outline-color: transparent;
-          outline-style: solid;
-          outline-offset: 6px;
-          transition: 0.1s ease outline-color;
-
-          &:hover,
-          &:focus,
-          &:active {
-            outline-color: rgba(185, 185, 252, 0.75);
-          }
-        }
-      }
-    }
-
-    main.center {
-      transform: translate(-50%, -50%);
-      position: fixed;
-      top: 50%;
-      left: 50%;
-    }
-
-    main.center .home {
-      background-color: rgba(230, 230, 255, 0.3);
-      padding: 30px;
-      text-align: center;
-      border-radius: 30px;
-      font-size: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      position: fixed;
-      left: 50%;
-      top: 150%;
-      transform: translate(-50%, -50%);
-    }
-  </style>
+  <meta name="robots" content="noindex,none,noimageindex">
+  <meta name="color-scheme" content="dark">
+  <script src="/js/404.js"></script>
 </head>
 
 <body>
   <main class="center">
-    <h1 style="font-size: 120px;text-align: center;margin-top: -80px;">dang</h1>
-    <h1 style="text-align: center;margin-top: -80px;margin-bottom: 80px">we can't find that page 😭</h1>
-    <h3>If you typed the link manually, check if you made a typo.<br>Otherwise, you have a few options:</h3>
-    <ul>
-      <li><a href="./">Go to the home page</a></li>
-      <li><a href="https://github.com/butterdogceo/butterdogceo.github.io/issues/new">Report an issue on GitHub</a></li>
-      <li><a href="https://discord.gg/KZzVM4rfg6">Report an issue on Discord</a></li>
-    </ul>
+    <h1 class="title">Dang</h1>
+    <h2 class="heading">We can't find that page :(</h2>
+    
+    <section id="message">
+      <p class="advice">If you typed this link, check for typos. Otherwise, you have a few options:</p>
+      <ul>
+        <li><a href="/">Return to the home page</a></li>
+        <li><a href="https://forms.gle/sL3xSSfdeVx7fGWy7" rel="nopener noreferrer">Report an issue on our feedback form</a></li>
+      </ul>
+    </section>
   </main>
 </body>
 

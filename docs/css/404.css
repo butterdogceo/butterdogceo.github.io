@@ -1,0 +1,74 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #2a1a1a;
+  background-image: url('/img/backgrounds/VerticalBackgroundTest3.png');
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  width: 100dvw;
+  overflow: hidden;
+}
+
+main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: calc(100% - 16px);
+
+  h1,
+  h2,
+  p,
+  a {
+    text-shadow: 0 0 8px #0000006a;
+    margin: 0;
+  }
+
+  a {
+    color: #71cae2;
+  }
+
+  .title,
+  .heading {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 120px;
+  }
+
+  .heading {
+    margin-bottom: 30px;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: disc;
+    list-style-position: inside;
+
+    li {
+      margin: 10px 0;
+
+      a {
+        font-size: 18px;
+        cursor: pointer;
+        color: rgb(185, 185, 252);
+        border-radius: 4px;
+        outline-color: transparent;
+        outline-style: solid;
+        outline-offset: 6px;
+        transition: 0.1s ease outline-color;
+
+        &:hover,
+        &:focus,
+        &:active {
+          outline-color: rgba(185, 185, 252, 0.75);
+        }
+      }
+    }
+  }
+}
