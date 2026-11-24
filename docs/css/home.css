@@ -160,11 +160,36 @@ main {
   &.da-hub {
     background-image: url("https://dahub.butterdogco.com/img/backgrounds/Blue.png");
     background-position: bottom right;
+
+    .button {
+      padding: 12px;
+      background: #0000008a;
+      border: 3px solid #5876d933;
+      border-radius: 16px;
+      transition: 0.15s ease;
+
+      &:hover {
+        background: #5876d933;
+        border-color: #62abe8;
+      }
+    }
   }
 
   &.wikabedia {
     background-color: #fff;
     color: #000;
+
+    .button {
+      background: #ededed;
+      border: 2px solid #d6d6d6;
+      border-radius: 6px;
+      padding: 4px;
+      transition: 0.1s ease background;
+
+      &:hover {
+        background: #d6d6d6;
+      }
+    }
   }
 
   &.butterdog-chat {
