@@ -1,0 +1,318 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-card {
+  display: flex;
+  flex-flow: row;
+  gap: 30px;
+  padding: 14px;
+  border-radius: 14px;
+  background-color: #e6e6f01a;
+  text-align: left;
+  text-shadow: var(--shadow-medium);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: 0.15s ease-in-out background-color;
+
+  img,
+  .image {
+    height: 100px;
+    min-height: 100px;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    animation: fadeIn 0.3s ease;
+
+    &:not(.no-shadow) {
+      box-shadow: var(--shadow-light);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    .header {
+      margin: 0 0 8px 0;
+    }
+
+    .text {
+      margin: 0;
+    }
+
+    .details {
+      margin: 8px 0 0 0;
+      font-style: italic;
+      color: #c8c8c8;
+    }
+  }
+
+  &[href="#"] {
+    cursor: default;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  gap: var(--cardGap, 15px);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  background-color: #e6e6f01a;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-shadow: var(--shadow-light);
+  text-align: left;
+  padding: 24px;
+  border-radius: 30px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .content-box {
+    padding: 8px;
+    margin: 0;
+
+    &.pre {
+      white-space: pre-line;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: inherit;
+    text-decoration: none;
+    width: max-content;
+    transition: 0.15s ease;
+
+    .material-symbols-rounded {
+      font-size: 20px;
+    }
+  }
+
+  .logo-img {
+    box-sizing: content-box;
+  }
+
+  &.butterdogco {
+    .content-box {
+      padding: 0;
+    }
+    
+    .actions {
+      gap: 16px;
+    }
+    
+    .button {
+      background-color: #ffffff33;
+      border-radius: 4px;
+      border: none;
+      outline: #ffffff33 4px solid;
+      padding: 0;
+      transition: 0.2s ease;
+
+      &:hover {
+        background-color: #ffffff99;
+        outline-color: #ffffff99;
+      }
+    }
+  }
+
+  &.da-hub,
+  &.wikabedia,
+  &.butter-os {
+    .logo-img {
+      aspect-ratio: 1;
+      max-width: 60px;
+    }
+  }
+
+  &.da-hub {
+    background-image: url("https://dahub.butterdogco.com/img/backgrounds/Blue.png");
+    background-position: bottom right;
+
+    .button {
+      padding: 12px;
+      background: #0000008a;
+      border: 3px solid #5876d933;
+      border-radius: 16px;
+      transition: 0.15s ease;
+
+      &:hover {
+        background: #5876d933;
+        border-color: #62abe8;
+      }
+    }
+  }
+
+  &.wikabedia {
+    background-color: #fff;
+    color: #000;
+
+    .button {
+      background: #ededed;
+      border: 2px solid #d6d6d6;
+      border-radius: 6px;
+      padding: 4px;
+      transition: 0.1s ease background;
+
+      &:hover {
+        background: #d6d6d6;
+      }
+    }
+  }
+
+  &.butterdog-chat {
+    background-image: url("https://cdn.jsdelivr.net/gh/butterdogco/ButterDog-Chat-Ultra-Deluxe@main/public/img/background-dark.png");
+    background-position: top center;
+    border: 1px solid #fafaff33;
+
+    .content-box {
+      background: #e6e6f01a;
+      border-radius: 12px;
+    }
+
+    .logo-img {
+      width: auto;
+      max-width: 220px;
+      height: 60px;
+      aspect-ratio: 4;
+    }
+
+    .button {
+      padding: 4px 8px;
+      border: 1px solid #fafaff33;
+      border-radius: 6px;
+      
+      &.try {
+        background: #443579;
+      }
+
+      &.link {
+        background: #5c5c5c;
+      }
+
+      .material-symbols-rounded {
+        font-size: 20px;
+      }
+
+      &:hover {
+        background: #35285a;
+      }
+    }
+  }
+
+  &.butter-os {
+    background-image: url("https://cdn.jsdelivr.net/gh/butterdogco/ButterOS@main/img/background/Crystal.jpg");
+    background-position: top center;
+    border: 1px solid #0000006e;
+
+    .content-box {
+      background: #00000080;
+      border: 1px solid #1e1e28bf;
+      box-shadow: 0 0 8px #00000099;
+      border-radius: 8px;
+    }
+
+    .logo-img {
+      width: auto;
+      max-width: 60px;
+      aspect-ratio: 1;
+    }
+
+    .button {
+      background: #6666a2;
+      border: 1px solid #b5b5ff5b;
+      border-radius: 10px;
+      padding: 8px;
+
+      &:hover {
+        background: #ffffff28;
+      }
+    }
+  }
+
+  &.ro-drive {
+    background-image: url("../img/Ro-Drive Neighborhood Thumbnail.png");
+    background-position: top left;
+
+    .content-box {
+      background: #4f4f564b;
+      border-radius: 6px;
+      border: 2px solid #797e8b49;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .logo-img {
+      object-fit: cover;
+      width: 120px;
+      aspect-ratio: 1.78947368;
+    }
+
+    .button {
+      transition: none;
+
+      &:hover {
+        background: #9797a593;
+        border-color: #9299a9c1;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .info-card {
+    flex-flow: column;
+
+    .header {
+      font-size: 35px;
+    }
+
+    img {
+      max-width: 100%;
+      align-self: flex-start;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    width: 100%;
+    aspect-ratio: auto;
+  }
+}
